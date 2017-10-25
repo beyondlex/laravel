@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
+use App\Repositories\UserRepository;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Bridge\RefreshTokenRepository;
-use Laravel\Passport\Bridge\UserRepository;
 use Laravel\Passport\Passport;
 use Laravel\Passport\PassportServiceProvider as BasePassportServiceProvider;
 use League\OAuth2\Server\Grant\PasswordGrant;
