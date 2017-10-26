@@ -29,4 +29,5 @@ artisan passport:install
 composer require "bosnadev/repositories: 0.*"
 
 artisan make:job TestJob
-
+composer require predis/predis ~1.0
+artisan queue:work
