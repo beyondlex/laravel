@@ -31,3 +31,6 @@ composer require "bosnadev/repositories: 0.*"
 artisan make:job TestJob
 composer require predis/predis ~1.0
 artisan queue:work
+
+composer require laravel/horizon
+artisan vendor:publish --provider="Laravel\Horizon\HorizonServiceProvider"

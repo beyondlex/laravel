@@ -11,6 +11,9 @@
 |
 */
 
+use App\Jobs\TestJob;
+use Illuminate\Support\Carbon;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,7 +23,7 @@ Route::get('/users', function() {
 });
 
 Route::get('queue', function() {
-    dispatch(new \App\Jobs\TestJob());
+    dispatch((new TestJob())->delay(Carbon::now()->addSeconds(5)));
 });
 
 Auth::routes();
