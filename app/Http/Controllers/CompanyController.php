@@ -14,6 +14,7 @@ class CompanyController extends Controller
         /** @var Admin $admin */
         $admin = factory(Admin::class)->create();
         $company = Company::find($admin->company_id);
-        \Mail::to('beyondsnk@163.com')->send(new CompanyCreated($company));
+//        \Mail::to('beyondsnk@163.com')->send(new CompanyCreated($company));
+        \Mail::to('beyondsnk@163.com')->queue(new CompanyCreated($company));
     }
 }

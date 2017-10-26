@@ -40,7 +40,7 @@ Route::get('/admin/company', function() {
 });
 
 Route::get('queue', function() {
-    dispatch((new TestJob())->delay(Carbon::now()->addSeconds(5)));
+    dispatch((new TestJob())->delay(Carbon::now()->addSeconds(1)));
 });
 
 Auth::routes();
