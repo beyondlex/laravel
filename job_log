@@ -11,8 +11,20 @@
 2017-10-26 21:18:32
 2017-10-26 22:17:43
 
-this is job from redis:
+this is job from redis in Horizon: (execute in host)
 {"driver":"smtp","host":"smtp.mailtrap.io","port":"2525","from":{"address":"hello@example.com","name":"Example"},"encryption":null,"username":null,"password":null,"sendmail":"\/usr\/sbin\/sendmail -bs","markdown":{"theme":"default","paths":["\/home\/lex\/projects\/php\/laravel\/resources\/views\/vendor\/mail"]}}
 2017-10-26 22:18:32
-this is job from sync:
+
+this is job from sync: (execute in docker)
 {"driver":"smtp","host":"smtp.exmail.qq.com","port":"465","from":{"address":"system@curato.cn","name":"curato"},"encryption":"ssl","username":"system@curato.cn","password":"System1234","sendmail":"\/usr\/sbin\/sendmail -bs","markdown":{"theme":"default","paths":["\/var\/www\/laravel\/resources\/views\/vendor\/mail"]}}
+
+this is job from redis in [artisan queue:work] (execute in host)
+2017-10-26 22:49:50
+{"driver":"smtp","host":"smtp.exmail.qq.com","port":"465","from":{"address":"system@curato.cn","name":"curato"},"encryption":"ssl","username":"system@curato.cn","password":"System1234","sendmail":"\/usr\/sbin\/sendmail -bs","markdown":{"theme":"default","paths":["\/home\/lex\/projects\/php\/laravel\/resources\/views\/vendor\/mail"]}}
+
+Q1: Why Horizon not read .env?
+Q2: Why artisan queue:work execute in host can not send mail?
+
+this is job from redis in Horizon: (execute in host) (why?)(restart horizon)
+2017-10-26 23:23:24
+{"driver":"smtp","host":"smtp.exmail.qq.com","port":"465","from":{"address":"system@curato.cn","name":"curato"},"encryption":"ssl","username":"system@curato.cn","password":"System1234","sendmail":"\/usr\/sbin\/sendmail -bs","markdown":{"theme":"default","paths":["\/home\/lex\/projects\/php\/laravel\/resources\/views\/vendor\/mail"]}}
