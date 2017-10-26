@@ -28,4 +28,5 @@ artisan passport:install
 
 composer require "bosnadev/repositories: 0.*"
 
+artisan make:job TestJob
 
