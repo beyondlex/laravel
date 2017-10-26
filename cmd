@@ -34,3 +34,7 @@ artisan queue:work
 
 composer require laravel/horizon
 artisan vendor:publish --provider="Laravel\Horizon\HorizonServiceProvider"
+
+composer require guzzlehttp/guzzle
+artisan make:mail CompanyCreated
+

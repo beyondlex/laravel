@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @property int company_id
+ */
 class Admin extends Model
 {
     //

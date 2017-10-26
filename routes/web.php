@@ -11,6 +11,8 @@
 |
 */
 
+use App\Admin;
+use App\Company;
 use App\Jobs\TestJob;
 use Illuminate\Support\Carbon;
 
@@ -20,6 +22,21 @@ Route::get('/', function () {
 
 Route::get('/users', function() {
     return \App\User::all();
+});
+
+Route::get('/company/create', 'CompanyController@create');
+
+Route::get('/admin/company', function() {
+//    $admin = Admin::find(4);
+//    $company = $admin->company;//select * from companies where admin_id = 4
+//    var_dump($company);
+//    error:
+
+    //table.companies
+    //table.admins.company_id
+    $company = Company::find(4);
+    $admin = $company->admin;//select * from admins where company_id = 4
+    var_dump($admin);
 });
 
 Route::get('queue', function() {
