@@ -30,5 +30,6 @@ class TestJob implements ShouldQueue
     public function handle()
     {
         //
+        file_put_contents(base_path().'/job_log', date('Y-m-d H:i:s')."\n", FILE_APPEND);
     }
 }

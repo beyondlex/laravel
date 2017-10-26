@@ -19,6 +19,10 @@ Route::get('/users', function() {
     return \App\User::all();
 });
 
+Route::get('queue', function() {
+    dispatch(new \App\Jobs\TestJob());
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
