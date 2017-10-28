@@ -18,9 +18,9 @@ class CompanyController extends Controller
         $admin = factory(Admin::class)->create();
         $user = User::find(1);
 //        $company = Company::find($admin->company_id);
-
-        $when = Carbon::now()->addMinute(1);
-
-        \Mail::to($user)->later($when, new AdminCreated($admin));
+        \Mail::to($user)->queue(new AdminCreated($admin));
+//
+//        $when = Carbon::now()->addMinute(1);
+//        \Mail::to($user)->later($when, new AdminCreated($admin));
     }
 }

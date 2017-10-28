@@ -41,3 +41,5 @@ artisan make:mail CompanyCreated
 apt-get install supervisor
 
 artisan make:mail AdminCreated --markdown=emails.admins.created
+
+artisan horizon:terminate
