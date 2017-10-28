@@ -24,6 +24,8 @@ Route::get('/users', function() {
     return \App\User::all();
 });
 
+Route::get('/order/paid', 'OrderController@paid');
+
 Route::get('/company/create', 'CompanyController@create');
 
 Route::get('/admin/company', function() {
