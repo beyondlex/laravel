@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use App\Order;
+use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -33,7 +34,7 @@ class OrderPaid extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -62,7 +63,10 @@ class OrderPaid extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'type'=>'order_paid',
+            'order_id'=>$this->order->id,
+            'order_no'=>$this->order->order_no,
+            'time'=>Carbon::now()->toDateTimeString(),
         ];
     }
 }

@@ -47,3 +47,6 @@ artisan horizon:terminate
 artisan make:notification OrderPaid
 artisan make:model Order
 artisan make:controller OrderController
+
+artisan notifications:table
+artisan migrate
