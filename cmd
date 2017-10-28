@@ -55,4 +55,6 @@ composer require nexmo/client
 artisan make:migration add_phone_to_users --table=users
 artisan migrate
 
+artisan make:migration alter_users --table=users
+composer require doctrine/dbal
 
