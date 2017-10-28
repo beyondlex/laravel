@@ -15,7 +15,7 @@ class OrderController extends Controller
         $user = User::find(1);
         $order = new Order();
         $order->id = 1;
-        $order->order_no = 'LEX00001';
+        $order->order_no = 'LEX00002';
         $user->notify(new OrderPaid($order));
     }
 }

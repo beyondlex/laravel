@@ -44,6 +44,9 @@ class OrderPaid extends Notification
      */
     public function toMail($notifiable)
     {
+        return (new MailMessage())->markdown('emails.orders.paid', [
+            'order'=>$this->order,
+        ]);
         return (new MailMessage)
                     ->line('Your order paid: ' . $this->order->order_no)
                     ->action('Notification Action', url('/'))
