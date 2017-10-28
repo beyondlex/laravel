@@ -50,3 +50,9 @@ artisan make:controller OrderController
 
 artisan notifications:table
 artisan migrate
+
+composer require nexmo/client
+artisan make:migration add_phone_to_users --table=users
+artisan migrate
+
+

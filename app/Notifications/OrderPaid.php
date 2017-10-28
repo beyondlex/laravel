@@ -5,6 +5,7 @@ namespace App\Notifications;
 use App\Order;
 use Carbon\Carbon;
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Messages\NexmoMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -34,7 +35,7 @@ class OrderPaid extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', 'nexmo'];
     }
 
     /**
@@ -68,5 +69,10 @@ class OrderPaid extends Notification
             'order_no'=>$this->order->order_no,
             'time'=>Carbon::now()->toDateTimeString(),
         ];
+    }
+
+    public function toNexmo($notifiable) {
+        return (new NexmoMessage())
+            ->content("Your order {$this->order->order_no} has paid.");
     }
 }
