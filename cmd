@@ -64,5 +64,6 @@ artisan make:migration create_orders_table
 artisan migrate
 
 artisan make:command SendEmails
+artisan make:mail Test
 
 
