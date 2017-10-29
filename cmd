@@ -65,5 +65,6 @@ artisan migrate
 
 artisan make:command SendEmails
 artisan make:mail Test
-
+artisan email:send
+artisan email:send --queue
 

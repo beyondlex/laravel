@@ -13,7 +13,7 @@ class SendEmails extends Command
      *
      * @var string
      */
-    protected $signature = 'email:send {user=1 : The id of user}';
+    protected $signature = 'email:send {user=1 : The id of user} {--queue : Whether the job should be queued}';
 
     /**
      * The console command description.
@@ -52,7 +52,12 @@ class SendEmails extends Command
             return;
         }
         if ($this->confirm("Email will send to {$user->email}. continue? [y|N]")) {
-            \Mail::to($user)->send(new Test());
+            $shouldQueue = $this->option('queue');
+            if ($shouldQueue) {
+                \Mail::to($user)->queue(new Test());
+            } else {
+                \Mail::to($user)->send(new Test());
+            }
         }
     }
 }
