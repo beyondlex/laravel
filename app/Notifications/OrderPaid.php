@@ -35,6 +35,7 @@ class OrderPaid extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
+//        return ['database'];
         return ['mail', 'database', 'nexmo'];
     }
 
@@ -63,6 +64,7 @@ class OrderPaid extends Notification implements ShouldQueue
      */
     public function toArray($notifiable)
     {
+
         return [
             'type'=>'order_paid',
             'order_id'=>$this->order->id,

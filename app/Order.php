@@ -4,9 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Order/* extends Model*/
+/**
+ * @property User user
+ * @property string order_no
+ * @property integer id
+ */
+class Order extends Model
 {
     //
-    public $id;
-    public $order_no;
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }

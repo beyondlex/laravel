@@ -58,3 +58,9 @@ artisan migrate
 artisan make:migration alter_users --table=users
 composer require doctrine/dbal
 
+artisan make:event OrderPaid
+artisan make:listener OrderPaidSubscriber
+artisan make:migration create_orders_table
+artisan migrate
+
+
