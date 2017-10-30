@@ -36,7 +36,7 @@ class OrderPaid extends Notification implements ShouldQueue
     public function via($notifiable)
     {
 //        return ['database'];
-        return ['mail', 'database', 'nexmo'];
+        return ['mail', 'database'];
     }
 
     /**

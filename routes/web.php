@@ -14,10 +14,23 @@
 use App\Admin;
 use App\Company;
 use App\Jobs\TestJob;
+use App\Mail\AdminCreated;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Redis;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/redis', function(){
+    return Redis::get('name');
+});
+Route::get('/config/{name?}', function($name = 'app') {
+    return config($name);
+});
+Route::get('mail', function() {
+    $admin = factory(Admin::class)->create();
+    \Mail::to('649981596@qq.com')->send(new AdminCreated($admin));
 });
 
 Route::get('/users', function() {
