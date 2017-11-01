@@ -22,6 +22,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/test', function() {
+
+});
+
+Route::get('/test', function() {
+    /** @var Admin $admin */
+    $admin = Admin::find(1);
+    $company = $admin->company;
+    var_dump($company->name);
+});
+
+Route::post('/log', function(Faker\Generator $faker) {
+    Log::debug($faker->sentence, ['context', Carbon::now()->toDateTimeString()]);
+});
+Route::get('/helper', 'HelperController@test');
+Route::get('/collect/test', 'CollectController@test');
+
 Route::get('/redis', function(){
     return Redis::get('name');
 });
