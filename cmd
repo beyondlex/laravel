@@ -69,3 +69,5 @@ artisan email:send
 artisan email:send --queue
 artisan make:command ConfigList
 
+artisan make:command FacadeInfo
+artisan facade:info Cache

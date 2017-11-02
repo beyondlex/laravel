@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\FacadeInfo;
 use App\Console\Commands\SendEmails;
 use App\Console\Commands\ConfigList;
 use Illuminate\Console\Scheduling\Schedule;
@@ -18,6 +19,7 @@ class Kernel extends ConsoleKernel
         //
         SendEmails::class,
         ConfigList::class,
+        FacadeInfo::class,
     ];
 
     /**
