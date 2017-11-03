@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Mail\Test;
-use App\User;
+use App\Models\User;
 use Illuminate\Console\Command;
 
 class SendEmails extends Command

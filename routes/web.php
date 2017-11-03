@@ -11,19 +11,28 @@
 |
 */
 
-use App\Admin;
-use App\Company;
 use App\Jobs\TestJob;
 use App\Mail\AdminCreated;
+use App\Models\Admin;
+use App\Models\Company;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/test', function() {
+Route::get('/facade', function() {
 
+    $instance = Cache::getFacadeRoot();
+    var_dump((new ReflectionClass($instance))->name);
+    //artisan facade:class
+});
+
+Route::get('/cache', function() {
+    Cache::set('name', 'lex', 2);
+    return Cache::get('name');
 });
 
 Route::get('/test', function() {
@@ -51,7 +60,7 @@ Route::get('mail', function() {
 });
 
 Route::get('/users', function() {
-    return \App\User::all();
+    return \App\Models\User::all();
 });
 
 Route::get('/order/paid', 'OrderController@paid');

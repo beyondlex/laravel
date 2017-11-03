@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
-use App\Company;
 use App\Mail\AdminCreated;
 use App\Mail\CompanyCreated;
-use App\User;
+use App\Models\Admin;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

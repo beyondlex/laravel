@@ -44,7 +44,7 @@ class UserRepository extends Repository implements UserRepositoryInterface {
      */
     public function model()
     {
-        return 'App\User';
+        return App\Models\User::class;
     }
 
     /**

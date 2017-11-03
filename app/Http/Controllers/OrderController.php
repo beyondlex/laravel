@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use App\Models\User;
 use App\Notifications\OrderPaid;
-use App\Order;
-use App\User;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
