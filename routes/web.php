@@ -15,12 +15,18 @@ use App\Jobs\TestJob;
 use App\Mail\AdminCreated;
 use App\Models\Admin;
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Redis;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::group(['prefix'=>'test'], function() {
+    Route::get('/', 'TestController@index');
+    Route::get('/companies', 'TestController@companies');
 });
 
 Route::get('/facade', function() {
@@ -35,12 +41,12 @@ Route::get('/cache', function() {
     return Cache::get('name');
 });
 
-Route::get('/test', function() {
-    /** @var Admin $admin */
-    $admin = Admin::find(1);
-    $company = $admin->company;
-    var_dump($company->name);
-});
+//Route::get('/test', function() {
+//    /** @var Admin $admin */
+//    $admin = Admin::find(1);
+//    $company = $admin->company;
+//    var_dump($company->name);
+//});
 
 Route::post('/log', function(Faker\Generator $faker) {
     Log::debug($faker->sentence, ['context', Carbon::now()->toDateTimeString()]);
@@ -60,7 +66,13 @@ Route::get('mail', function() {
 });
 
 Route::get('/users', function() {
-    return \App\Models\User::all();
+    return User::all();
+});
+
+Route::get('/migration/done', function() {
+    /** @var User $user */
+    $user = User::find(1);
+    $user->notify(new \App\Notifications\MigrationDone());
 });
 
 Route::get('/order/paid', 'OrderController@paid');
