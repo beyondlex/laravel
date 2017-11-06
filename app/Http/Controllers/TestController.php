@@ -24,4 +24,9 @@ class TestController extends Controller
     function companies() {
         return $this->company->all();
     }
+
+    function find(Request $request, $id) {
+//        var_dump($request->post());
+        return $this->company->find($id);
+    }
 }

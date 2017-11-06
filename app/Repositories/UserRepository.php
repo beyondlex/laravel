@@ -55,7 +55,7 @@ class UserRepository extends Repository implements UserRepositoryInterface {
      * @param string $grantType The grant type used
      * @param ClientEntityInterface $clientEntity
      *
-     * @return UserEntityInterface
+     * @return UserEntityInterface|void
      */
     public function getUserEntityByUserCredentials(
         $username,

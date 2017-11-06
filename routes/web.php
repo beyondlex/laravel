@@ -27,6 +27,7 @@ Route::get('/', function () {
 Route::group(['prefix'=>'test'], function() {
     Route::get('/', 'TestController@index');
     Route::get('/companies', 'TestController@companies');
+    Route::any('/companies/{id}', 'TestController@find')->where(['id'=>'[0-9]+']);
 });
 
 Route::get('/facade', function() {
