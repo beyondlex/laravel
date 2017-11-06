@@ -49,8 +49,10 @@ Route::get('/cache', function() {
 //    var_dump($company->name);
 //});
 
-Route::post('/log', function(Faker\Generator $faker) {
+Route::get('/log', function(Faker\Generator $faker) {
     Log::debug($faker->sentence, ['context', Carbon::now()->toDateTimeString()]);
+    Log::debug('test multi log', ['sth']);
+//    return DB::getQueryLog();
 });
 Route::get('/helper', 'HelperController@test');
 Route::get('/collect/test', 'CollectController@test');

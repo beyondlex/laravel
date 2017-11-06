@@ -16,3 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::any('/companies/{id}', 'TestController@find')->where(['id'=>'[0-9]+']);
+Route::any('/companies', 'TestController@companies');
+Route::any('/companies/test', 'TestController@queryTest');
