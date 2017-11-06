@@ -181,6 +181,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * Business Service Providers...
+         */
+        \App\Providers\CompanyServiceProvider::class,
+
     ],
 
     /*

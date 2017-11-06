@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Repositories\Contracts\CompanyRepositoryInterface;
 use App\Repositories\Eloquent\CompanyRepository;
 use App\Repositories\Criteria\Company\NameLike;
 use Carbon\Carbon;
@@ -14,7 +15,7 @@ class TestController extends Controller
 {
     protected $company;
 
-    public function __construct(CompanyRepository $company)
+    public function __construct(CompanyRepositoryInterface $company)
     {
         $this->company = $company;
     }
@@ -27,13 +28,13 @@ class TestController extends Controller
     function companies(Request $request) {
         $name = $request->post('name');
 //        return $this->company->pushCriteria(new NameLike($name))->paginate(1);
-        $all = $this->company->pushCriteria(new NameLike($name))->all();
+        $all = $this->company->findByName($name);
         return $all;
     }
 
     function find(Request $request, $id) {
 //        var_dump($request->post());
-        return $this->company->find($id);
+        return $this->company->info($id);
     }
 
     function queryTest() {
