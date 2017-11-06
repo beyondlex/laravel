@@ -3,11 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Repositories\CompanyRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
+    protected $company;
+
+    public function __construct(CompanyRepository $company)
+    {
+        $this->company = $company;
+    }
 
     //
     function index() {
@@ -15,6 +22,6 @@ class TestController extends Controller
     }
 
     function companies() {
-        return Company::all();
+        return $this->company->all();
     }
 }
