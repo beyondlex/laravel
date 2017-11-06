@@ -22,9 +22,8 @@ class MysqlHandler extends AbstractProcessingHandler {
 
     public $model;
 
-    public function __construct(Monolog $model, $level = Logger::DEBUG, $bubble = true)
+    public function __construct($level = Logger::DEBUG, $bubble = true)
     {
-        $this->model = $model;
         parent::__construct($level, $bubble);
     }
 
@@ -36,7 +35,7 @@ class MysqlHandler extends AbstractProcessingHandler {
      */
     protected function write(array $record)
     {
-        // TODO: Implement write() method.
+        $this->model = new Monolog();
         $this->model->channel = $record['channel'];
         $this->model->level = $record['level'];
         $this->model->message = $record['message'];

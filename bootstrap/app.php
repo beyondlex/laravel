@@ -44,7 +44,7 @@ $app->singleton(
 
 $app->configureMonologUsing(function($monolog){
     /** @var \Monolog\Logger $monolog */
-    $monolog->pushHandler(new \App\Libs\Extensions\MysqlHandler(new \App\Models\Monolog()));
+    $monolog->pushHandler(new \App\Libs\Extensions\MysqlHandler());
     $monolog->pushProcessor(new \Monolog\Processor\IntrospectionProcessor(null,
         [
             'Illuminate\\Foundation\\Http\\Kernel',
