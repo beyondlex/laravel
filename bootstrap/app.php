@@ -44,8 +44,13 @@ $app->singleton(
 
 $app->configureMonologUsing(function($monolog){
     /** @var \Monolog\Logger $monolog */
-    $monolog->pushHandler(new \App\Libs\Extensions\MysqlHandler(new \App\Monolog()));
-//    request();
+    $monolog->pushHandler(new \App\Libs\Extensions\MysqlHandler(new \App\Models\Monolog()));
+    $monolog->pushProcessor(new \Monolog\Processor\IntrospectionProcessor(null,
+        [
+            'Illuminate\\Foundation\\Http\\Kernel',
+            'Illuminate\\Log',
+            'Illuminate\\Support\\Facades',
+        ]));
     $monolog->pushProcessor(function($record) {
         if ($req = request()->all()) {
             $record['extra']['request'] = $req;
@@ -56,7 +61,6 @@ $app->configureMonologUsing(function($monolog){
     $webProcessor->addExtraField('user_agent', 'HTTP_USER_AGENT');
     $monolog->pushProcessor($webProcessor);
 
-//    var_dump(request());
 });
 
 /*
