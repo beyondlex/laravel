@@ -5,7 +5,7 @@
  * Date: 17-11-6
  * Time: 上午10:19
  */
-namespace App\Repositories;
+namespace App\Repositories\Eloquent;
 
 use App\Models\Company;
 use Bosnadev\Repositories\Eloquent\Repository;

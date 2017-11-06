@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Repositories\UserRepository;
+use App\Repositories\Eloquent\UserRepository;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Bridge\RefreshTokenRepository;
 use Laravel\Passport\Passport;
