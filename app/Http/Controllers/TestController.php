@@ -25,6 +25,10 @@ class TestController extends Controller
         return Carbon::now()->toDateTimeString();
     }
 
+    function carbon() {
+
+    }
+
     function companies(Request $request) {
         $name = $request->post('name');
 //        return $this->company->pushCriteria(new NameLike($name))->paginate(1);
