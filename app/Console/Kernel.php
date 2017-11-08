@@ -21,7 +21,6 @@ class Kernel extends ConsoleKernel
         SendEmails::class,
         ConfigList::class,
         FacadeInfo::class,
-        MakeRepository::class,
     ];
 
     /**
